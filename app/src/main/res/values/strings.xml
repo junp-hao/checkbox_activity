@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Android_demo</string>
+    <string name="question1">北京是中国的首都吗?</string>
+    <string name="question2">杭州是浙江的省会吗?</string>
+    <string name="question3">深圳是广东的省会吗?</string>
+    <string name="trueBtn">是</string>
+    <string name="falseBtn">否</string>
+    <string name="yesQuestion">恭喜你，回答正确！！！</string>
+    <string name="NoQuestion">打错了,再接再厉！！！</string>
+    <string name="nextBtn">下一题</string>
+    <string name="lastBtn">上一题</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
