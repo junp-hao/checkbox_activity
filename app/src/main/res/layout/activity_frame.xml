@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="400dp"
+            android:height="400dp"
+            android:background="#000000"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="360dp"
+            android:height="360dp"
+            android:background="#FFE4E1"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="320dp"
+            android:height="320dp"
+            android:background="#f00"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="280dp"
+            android:height="280dp"
+            android:background="#0f0"
+            android:layout_gravity="center"  />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="240dp"
+            android:height="240dp"
+            android:background="#00f"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="200dp"
+            android:height="200dp"
+            android:background="#ff0"
+            android:layout_gravity="center"  />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="160dp"
+            android:height="160dp"
+            android:background="#f0f"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="120dp"
+            android:height="120dp"
+            android:background="#0ff"
+            android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="80dp"
+        android:height="80dp"
+        android:background="#FFD700"
+        android:layout_gravity="center" />
+
+</FrameLayout>

@@ -3,7 +3,7 @@ package com.example.andriod_demo;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,12 +11,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageView;
-
 import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    private static final String INDEX = "INDEX";
 
     Button mTrueBtn;
     Button mFalseBtn;
@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(TAG,"onCreate");
 
+        if (savedInstanceState!=null){
+            mIndex=savedInstanceState.getInt(INDEX,0);
+        }
 
         mTrueBtn = findViewById(R.id.true_button);
         mTrueBtn.setOnClickListener(new View.OnClickListener() {
@@ -58,14 +61,30 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mQuestionView = findViewById(R.id.questionView);
+        updateQuestionView();
+
+        mQuestionView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(Intent.ACTION_SEND);
+                intent.setType("plain/text");
+                String[] addrs =new String[]{"940501527@qq.com"};
+                String subject="问题求助";
+                String content=getString(mQuestions[mIndex].getResId());
+                intent.putExtra(Intent.EXTRA_EMAIL,addrs);
+                intent.putExtra(Intent.EXTRA_SUBJECT,subject);
+                intent.putExtra(Intent.EXTRA_TEXT,content);
+                startActivity(intent);
+            }
+        });
+
 
         mNextBtn = findViewById(R.id.next_button);
         mNextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mIndex = (mIndex+1)%mQuestions.length;
-                int id=mQuestions[mIndex].getResId();
-                mQuestionView.setText(id);
+                updateQuestionView();
             }
         });
 
@@ -75,11 +94,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 mIndex = (mIndex+2)%mQuestions.length;
-                int id=mQuestions[mIndex].getResId();
-                mQuestionView.setText(id);
+                updateQuestionView();
             }
         });
 
+    }
+
+    private void updateQuestionView() {
+        int strID = mQuestions[mIndex].getResId();
+        mQuestionView.setText(strID);
     }
 
     private void checkAnswer(boolean b) {
@@ -93,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
 
     @Override
     protected void onStart() {
@@ -125,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG,"onResume");
     }
 
-
     @Override
     protected void onRestart() {
         super.onRestart();
@@ -135,7 +156,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        Log.d(TAG,"onSaveInstanceState, mIndex"+mIndex);
+        outState.putInt(INDEX,mIndex);
+        Log.d(TAG,"onSaveInstanceState" + mIndex);
 
     }
 
@@ -145,15 +167,8 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG,"onRestoreInstanceState");
     }
 
-
-
-
-
     private ImageView mImageView;
 
     private File mPhotoFile=null;
-
-
-
 
 }
